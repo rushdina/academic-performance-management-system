@@ -1,17 +1,14 @@
 {
-  "name": "student-management-system",
+  "name": "academic-performance-management-system",
   "version": "1.0.0",
-  "description": "Student Management System using JavaScript and SQLite",
+  "description": "A JavaScript console application that models an academic system with OOP principles and implements dynamic grading strategies and ranking algorithms.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "better-sqlite3": "^12.8.0"
-  }
+  "type": "module"
 }
