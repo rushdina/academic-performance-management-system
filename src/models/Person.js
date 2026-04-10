@@ -24,7 +24,12 @@ class Person {
     return {
       id: this._id,
       name: this._name,
+      role: this.getRole(),
     };
+  }
+
+  getRole() {
+    throw new Error("Subclasses must implement getRole()");
   }
 }
 
