@@ -33,6 +33,13 @@ class Student extends Person {
   getRole() {
     return "Student";
   }
+
+  getDetails() {
+    return {
+      ...super.getDetails(),
+      enrolledCourses: this.enrolledCourses,
+    };
+  }
 }
 
 export default Student;
