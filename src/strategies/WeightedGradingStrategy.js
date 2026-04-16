@@ -1,6 +1,10 @@
 import GradingStrategy from "./GradingStrategy.js";
 
 class WeightedGradingStrategy extends GradingStrategy {
+  // constructor(...args) {
+  //   super(...args);
+  // }
+
   calculateFinalResult(enrollmentRecord, assessments) {
     if (!enrollmentRecord) {
       throw new Error("Enrollment record is required.");
