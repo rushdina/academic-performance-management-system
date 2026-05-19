@@ -1,17 +1,5 @@
 class Course {
   constructor(code, title, instructorId, gradingStrategy) {
-    if (!code || !title) {
-      throw new Error("Course must have both code and title.");
-    }
-
-    if (!instructorId) {
-      throw new Error("Course must have an instructor ID.");
-    }
-
-    if (!gradingStrategy) {
-      throw new Error("Course must have a grading strategy.");
-    }
-
     if (typeof code !== "string" || code.trim() === "") {
       throw new Error("Course code must be a non-empty string.");
     }
@@ -21,7 +9,7 @@ class Course {
     }
 
     if (typeof instructorId !== "string" || instructorId.trim() === "") {
-      throw new Error("Course must have a valid instructor ID.");
+      throw new Error("Instructor ID must be a non-empty string.");
     }
 
     if (
@@ -29,7 +17,7 @@ class Course {
       typeof gradingStrategy.calculateFinalResult !== "function" ||
       typeof gradingStrategy.getStrategyName !== "function"
     ) {
-      throw new Error("Course must have a valid grading strategy.");
+      throw new Error("Invalid grading strategy.");
     }
 
     this._code = code.trim();
@@ -107,9 +95,9 @@ class Course {
       throw new Error("Enrollment record is required.");
     }
 
-    return this._gradingStrategy.calculateFinalResult(
+    return this.gradingStrategy.calculateFinalResult(
       enrollmentRecord,
-      this._assessments,
+      this.assessments,
     );
   }
 

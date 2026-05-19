@@ -1,9 +1,5 @@
 class EnrollmentRecord {
   constructor(studentId, courseCode) {
-    if (!studentId || !courseCode) {
-      throw new Error("Enrollment must have studentId and courseCode.");
-    }
-
     if (typeof studentId !== "string" || studentId.trim() === "") {
       throw new Error("Enrollment must have a valid studentId.");
     }
@@ -28,11 +24,7 @@ class EnrollmentRecord {
   }
 
   addScore(assessmentName, score) {
-    if (
-      typeof assessmentName !== "string" ||
-      assessmentName.trim() === "" ||
-      !assessmentName
-    ) {
+    if (typeof assessmentName !== "string" || assessmentName.trim() === "") {
       throw new Error("Assessment name is required.");
     }
 
@@ -40,7 +32,9 @@ class EnrollmentRecord {
       throw new Error("Score must be a valid non-negative number.");
     }
 
-    this._scores.set(assessmentName.trim(), score);
+    const normalizedName = assessmentName.trim().toLowerCase();
+
+    this._scores.set(normalizedName, score);
   }
 
   getScore(assessmentName) {
@@ -48,7 +42,7 @@ class EnrollmentRecord {
       return null;
     }
 
-    const normalizedName = assessmentName.trim();
+    const normalizedName = assessmentName.trim().toLowerCase();
 
     return this._scores.has(normalizedName)
       ? this._scores.get(normalizedName)
