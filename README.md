@@ -392,6 +392,23 @@ Retrieve the top three students:
 system.getTopStudents("CS101", 3);
 ```
 
+## 🧠 Key Challenges & Solutions
+
+### Flexible Grading Strategies
+
+**Challenge:** Supporting different grading methods without tightly coupling grading logic to courses.
+**Solution:** Applied the **Strategy Pattern** with interchangeable weighted and Pass/Fail grading strategies through a common interface.
+
+### Managing Academic Relationships
+
+**Challenge:** Managing relationships between students, courses, assessments, enrollments, and scores while preventing inconsistent or duplicate data.
+**Solution:** Separated responsibilities across domain classes and used **Map** and **Set** for efficient lookups and unique relationships, with centralized validation in the system service.
+
+### Student Ranking & Tie Handling
+
+**Challenge:** Ranking students fairly when multiple students have identical overall results.
+**Solution:** Implemented multi-criteria sorting using overall results and final exam scores, while assigning equal ranks to students who remain tied.
+
 ## 📚 Key Learnings
 
 Through this project, I strengthened my understanding of:
